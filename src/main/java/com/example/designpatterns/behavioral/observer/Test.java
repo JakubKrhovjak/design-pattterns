@@ -1,6 +1,10 @@
 package com.example.designpatterns.behavioral.observer;
 
 
+import com.example.designpatterns.behavioral.observer.listener.DeleteListener;
+import com.example.designpatterns.behavioral.observer.listener.SaveListener;
+import com.example.designpatterns.behavioral.observer.listener.UpdateListener;
+
 import lombok.extern.java.Log;
 
 /**
@@ -17,11 +21,11 @@ public class Test {
         eventManager.subscribe(saveListener);
         eventManager.subscribe(new UpdateListener());
 
-        eventManager.notify(EventType.SAVE);
+        eventManager.notify(ListenerType.SAVE);
 
         eventManager.unsubscribe(saveListener);
 
-        eventManager.notify(EventType.SAVE);
+        eventManager.notify(ListenerType.SAVE);
     }
 
 

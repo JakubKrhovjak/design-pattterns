@@ -1,4 +1,6 @@
-package com.example.designpatterns.behavioral.observer;
+package com.example.designpatterns.behavioral.observer.listener;
+
+import com.example.designpatterns.behavioral.observer.ListenerType;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 public class SaveListener implements EventListener {
 
     @Override
-    public EventType getType() {
-        return EventType.SAVE;
+    public ListenerType getType() {
+        return ListenerType.SAVE;
     }
 
     @Override
