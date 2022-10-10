@@ -1,39 +1,19 @@
 package com.example.designpatterns.behavioral.strategy;
 
-import com.example.designpatterns.DesignPatternsApplication;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
-
-import lombok.extern.java.Log;
+import com.example.designpatterns.behavioral.state.StateContext;
+import com.example.designpatterns.behavioral.strategy.strtegies.ImmediateStopStrategy;
+import com.example.designpatterns.behavioral.strategy.strtegies.LongStartStrategy;
 
 /**
- * Created by Jakub Krhovják on 10/8/22.
+ * Created by Jakub Krhovják on 10/10/22.
  */
-@Log
 public class Test {
 
+
     public static void main(String[] args) {
-        Arrays.stream(StrategyType.values()).forEach(Test::testStrategyClassic);
-
-        Arrays.stream(StrategyType.values()).forEach(Test::testStrategySupported);
-    }
-
-    public static void testStrategyClassic(StrategyType type) {
-        switch (type) {
-            case ADD -> new StrategyContext(new StrategyAdd()).execute(2, 2);
-            case SUBTRACT -> new StrategyContext(new StrategySubtract()).execute(2, 2);
-            case MULTIPLY -> new StrategyContext(new StrategyMultiply()).execute(2, 2);
-            default -> throw new UnsupportedOperationException();
-        }
-    }
-
-    public static void testStrategySupported(StrategyType type) {
-        Stream.of(new StrategyAdd(), new StrategySubtract(), new StrategyMultiply())
-                .filter(strategy -> strategy.isSupported(type))
-                .findAny()
-                .ifPresent(strategy -> strategy.execute(2, 2));
+        var strategyProcessor = new StrategyProcessor(new LongStartStrategy(), new ImmediateStopStrategy());
+        strategyProcessor.start();
+        strategyProcessor.stop();
 
     }
 }

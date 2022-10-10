@@ -1,4 +1,4 @@
-package com.example.designpatterns.behavioral.strategy;
+package com.example.designpatterns.behavioral.command;
 
 import lombok.extern.java.Log;
 
@@ -6,7 +6,7 @@ import lombok.extern.java.Log;
  * Created by Jakub Krhovják on 10/8/22.
  */
 @Log
-public class StrategySubtract implements Strategy {
+public class Subtract implements ICommand {
 
     @Override
     public void execute(int a, int b) {
@@ -14,7 +14,7 @@ public class StrategySubtract implements Strategy {
     }
 
     @Override
-    public boolean isSupported(StrategyType type) {
-        return StrategyType.SUBTRACT == type;
+    public boolean isSupported(CommandType type) {
+        return CommandType.SUBTRACT == type;
     }
 }
