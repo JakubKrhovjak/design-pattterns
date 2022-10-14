@@ -16,6 +16,8 @@ public class Dot implements Graphic {
 
     protected int y;
 
+
+    // move should be done by another class and create a new Dot. This is only for sake of simplicity
     @Override
     public void move(int x, int y) {
         log.info("Move {} {}", x, y);
