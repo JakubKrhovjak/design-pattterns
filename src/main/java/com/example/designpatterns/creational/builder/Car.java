@@ -5,6 +5,8 @@ package com.example.designpatterns.creational.builder;
  */
 public class Car {
 
+    private Car() {}
+
     private String seats;
 
     private String engine;
